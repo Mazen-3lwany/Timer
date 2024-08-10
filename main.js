@@ -35,7 +35,7 @@ function validate() {
   return true;
 }
 function countDown() {
-  sec.value -= 1;
+
   if (sec.value == 0 && min.value == 0 && hour.value == 0) {
     clearInterval(x);
     sec.disabled = false;
@@ -55,12 +55,13 @@ function countDown() {
   //  min.value=59;
   //  ho
   // }
-
-  if (sec.value == 0 && min.value > 0) {
+  if(sec.value>0)
+    sec.value -= 1;
+ else if ( min.value > 0) {
     sec.value = 59;
     min.value -= 1;
   }
-  if (min.value == 0 && sec.value == 0 && hour.value > 0) {
+ else if ( hour.value > 0) {
     min.value = 59;
     sec.value = 59;
     hour.value -= 1;
